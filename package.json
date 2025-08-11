@@ -10,7 +10,7 @@
     "build": "tsc && tsc-alias",
     "start": "node dist/src/index.js",
     "type-check": "tsc --noEmit",
-    "lint": "eslint .",
+    "lint": "eslint --max-warnings 0 .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -45,9 +45,9 @@
     "typescript-eslint": "^8.39.0"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --max-warnings 0 ."
+    "*.{ts,tsx, json, yaml, yml}": [
+      "yarn format",
+      "yarn lint"
     ]
   }
 }
